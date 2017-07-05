@@ -1,7 +1,7 @@
 # This spec file was tested on Fedora 25.
 
 Name: razergenie
-Version: 0.2
+Version: 0.3
 Release: 1%{?dist}
 Summary: Standalone Qt application for configuring your Razer devices under GNU/Linux.
 
@@ -15,13 +15,6 @@ Source0: https://github.com/z3ntu/RazerGenie/archive/v%{version}.tar.gz
 Summary: Qt GUI for Razer drivers
 BuildRequires: cmake extra-cmake-modules
 Requires: razer-daemon
-%if 0%{?suse_version}
-BuildRequires: kconfigwidgets-devel
-Requires: kconfigwidgets
-%else
-BuildRequires: kf5-kconfigwidgets-devel
-Requires: kf5-kconfigwidgets
-%endif
 %description
 Standalone Qt application for configuring your Razer devices under GNU/Linux.
 
@@ -29,7 +22,11 @@ Standalone Qt application for configuring your Razer devices under GNU/Linux.
 %autosetup -n RazerGenie-%{version}
 
 %build
+%if 0%{?suse_version}
+%cmake ..
+%else
 %cmake .
+%endif
 make %{?_smp_mflags}
 
 
