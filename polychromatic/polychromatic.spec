@@ -16,10 +16,10 @@
 %{!?py3_build: %global py3_build CFLAGS="%{optflags}" %{__python3} setup.py build}
 %{!?py3_install: %global py3_install %{__python3} setup.py install --skip-build --root %{buildroot}}
 
-%define gitcommit fa55635c3f7ec05afd04c34a6ee4f4c144a21e34
+#define gitcommit fa55635c3f7ec05afd04c34a6ee4f4c144a21e34
 
 Name: polychromatic
-Version: 0.3.9.git
+Version: 0.3.9.3
 Release: 1%{?dist}
 Summary: A front-end for configuring Razer devices
 
@@ -38,7 +38,7 @@ Requires: python3-razer
 Requires: python3
 # Thanks OpenSUSE for this great package name...
 %if 0%{?suse_version}
-Requires: libappindicator3-1 pkgconfig(webkit2gtk-4.0)
+Requires: libappindicator3-1 pkgconfig(webkit2gtk-4.0) typelib-1_0-WebKit2-4_0
 %else
 Requires: libappindicator-gtk3 webkitgtk4
 %endif
