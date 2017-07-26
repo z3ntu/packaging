@@ -13,7 +13,7 @@ Source0: https://github.com/z3ntu/RazerGenie/archive/v%{version}.tar.gz
 #BuildArch: noarch
 
 Summary: Qt GUI for Razer drivers
-BuildRequires: cmake extra-cmake-modules
+BuildRequires: cmake extra-cmake-modules qt5-qtbase-devel
 Requires: razer-daemon
 %description
 Standalone Qt application for configuring your Razer devices under GNU/Linux.
