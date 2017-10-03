@@ -10,10 +10,12 @@ URL: https://github.com/z3ntu/RazerGenie
 
 Source0: https://github.com/z3ntu/RazerGenie/releases/download/v%{version}/RazerGenie-%{version}.tar.xz
 
-#BuildArch: noarch
-
-Summary: Qt GUI for Razer drivers
-BuildRequires: cmake extra-cmake-modules qt5-qtbase-devel
+BuildRequires: cmake extra-cmake-modules
+%if 0%{?suse_version}
+BuildRequires: libqt5-qtbase-devel
+%else
+BuildRequires: qt5-qtbase-devel
+%endif
 Requires: razer-daemon
 %description
 Standalone Qt application for configuring your Razer devices under GNU/Linux.
@@ -23,15 +25,19 @@ Standalone Qt application for configuring your Razer devices under GNU/Linux.
 
 %build
 %if 0%{?suse_version}
-%cmake ..
+%cmake
+%make_jobs
 %else
 %cmake .
-%endif
 make %{?_smp_mflags}
-
+%endif
 
 %install
+%if 0%{?suse_version}
+%cmake_install
+%else
 make install DESTDIR=%{buildroot}
+%endif
 
 
 %clean
