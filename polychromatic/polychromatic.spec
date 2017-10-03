@@ -19,7 +19,7 @@
 #define gitcommit fa55635c3f7ec05afd04c34a6ee4f4c144a21e34
 
 Name: polychromatic
-Version: 0.3.9.3
+Version: 0.3.11.2
 Release: 1%{?dist}
 Summary: A front-end for configuring Razer devices
 
@@ -45,6 +45,10 @@ Requires: libappindicator-gtk3 webkitgtk4
 Requires: ImageMagick
 BuildRequires: rsync
 BuildRequires: python3
+#if 0%{?suse_version}
+#else
+BuildRequires: nodejs-less
+#endif
 
 
 %description
@@ -70,7 +74,11 @@ cd %{_builddir}/polychromatic-%{gitcommit}
 cd %{_builddir}/polychromatic-%{version}
 %endif
 
+%if 0%{?suse_version}
+make DESTDIR=$RPM_BUILD_ROOT LESSC=/usr/lib/node_modules/less/bin/lessc install
+%else
 make DESTDIR=$RPM_BUILD_ROOT install
+%endif
 
 %find_lang polychromatic-controller
 %find_lang polychromatic-tray-applet
