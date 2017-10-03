@@ -7,6 +7,6 @@ Build-Depends: debhelper (>= 9), cmake, extra-cmake-modules, qt5-default
 
 Package: razergenie
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: testdescription
- asdasdhjakshdjkashdjkhajkshd
+Depends: ${shlibs:Depends}, ${misc:Depends} openrazer-daemon
+Description: Qt application for configuring your Razer devices
+ Interfaces with the OpenRazer daemon to control and configure all of your Razer peripherals that are connected to your PC.
