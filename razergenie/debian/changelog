@@ -1,3 +1,9 @@
+razergenie (0.5-1) stable; urgency=medium
+
+  * New upstream release
+
+ -- Luca Weiss <luca@z3ntu.xyz>  Sat, 18 Nov 2017 16:12:52 +0100
+
 razergenie (0.4-2) stable; urgency=medium
 
   * Improve the Debian packaging by adding a description, copyright and
