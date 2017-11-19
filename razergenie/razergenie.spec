@@ -12,9 +12,9 @@ Source0: https://github.com/z3ntu/RazerGenie/releases/download/v%{version}/Razer
 
 BuildRequires: meson
 %if 0%{?suse_version}
-BuildRequires: libqt5-qtbase-devel
+BuildRequires: libqt5-qtbase-devel libqt5-linguist
 %else
-BuildRequires: qt5-qtbase-devel
+BuildRequires: qt5-qtbase-devel qt5-linguist
 %endif
 Requires: razer-daemon
 %description

@@ -3,7 +3,7 @@ Maintainer: Luca Weiss <luca@z3ntu.xyz>
 Section: misc
 Priority: optional
 Standards-Version: 3.9.8
-Build-Depends: debhelper (>= 9), meson, qt5-default
+Build-Depends: debhelper (>= 9), cmake, extra-cmake-modules, meson, qt5-default, qttools5-dev-tools
 
 Package: razergenie
 Architecture: any
