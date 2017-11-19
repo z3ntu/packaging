@@ -3,16 +3,18 @@
 Name: razergenie
 Version: 0.5
 Release: 1%{?dist}
-Summary: Standalone Qt application for configuring your Razer devices under GNU/Linux.
+Summary: Standalone Qt application for configuring your Razer devices under GNU/Linux
 
 License: GPL-3.0
 URL: https://github.com/z3ntu/RazerGenie
 
 Source0: https://github.com/z3ntu/RazerGenie/releases/download/v%{version}/RazerGenie-%{version}.tar.xz
+Patch0: 0001-Also-detect-lrelease-qt5-on-other-distros.patch
 
 BuildRequires: meson
 %if 0%{?suse_version}
-BuildRequires: libqt5-qtbase-devel libqt5-linguist
+# "python3" is needed explicitely due to a bug in the meson packaging: https://bugzilla.opensuse.org/show_bug.cgi?id=1068818
+BuildRequires: libqt5-qtbase-devel libqt5-linguist python3
 %else
 BuildRequires: qt5-qtbase-devel qt5-linguist
 %endif
@@ -21,7 +23,7 @@ Requires: razer-daemon
 Standalone Qt application for configuring your Razer devices under GNU/Linux.
 
 %prep
-%autosetup -n RazerGenie-%{version}
+%autosetup -n RazerGenie-%{version} -p1
 
 %build
 %meson
@@ -39,3 +41,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/libopenrazer.so*
 %{_datadir}/applications/razergenie.desktop
 %{_datadir}/icons/hicolor/scalable/apps/razergenie.svg
+%{_datadir}/razergenie/

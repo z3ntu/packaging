@@ -1,0 +1,25 @@
+From be9818ee2fb4dc8b93a06846f08e8c49e11c29ac Mon Sep 17 00:00:00 2001
+From: Luca Weiss <luca@z3ntu.xyz>
+Date: Sat, 18 Nov 2017 19:22:29 +0100
+Subject: [PATCH] Also detect lrelease-qt5 on other distros
+
+---
+ data/meson.build | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/data/meson.build b/data/meson.build
+index b204c33..bc9b468 100644
+--- a/data/meson.build
++++ b/data/meson.build
+@@ -6,7 +6,7 @@ install_data('matrix_layouts/razerdefault22.json', install_dir : matrixlayoutdir
+ # Translations
+ languages = ['de']  # add new languages here!
+ translationsdir = join_paths(get_option('datadir'), 'razergenie/translations')
+-lrelease = find_program('lrelease')
++lrelease = find_program(['lrelease-qt5', 'lrelease'])
+ 
+ foreach lang : languages
+     custom_target('translation_' + lang,
+-- 
+2.15.0
+
