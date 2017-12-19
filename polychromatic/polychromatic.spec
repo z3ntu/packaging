@@ -31,6 +31,9 @@ Source0: https://github.com/lah7/polychromatic/archive/%{gitcommit}.tar.gz
 %else
 Source0: https://github.com/lah7/polychromatic/archive/v%{version}.tar.gz
 %endif
+%if 0%{?suse_version}
+Source1: http://download.opensuse.org/repositories/home:/illuusio:/nodejs-bundle/openSUSE_Tumbleweed/noarch/lessc-2.6.1-6.3.noarch.rpm
+%endif
 
 BuildArch: noarch
 
@@ -45,10 +48,12 @@ Requires: libappindicator-gtk3 webkitgtk4
 Requires: ImageMagick
 BuildRequires: rsync
 BuildRequires: python3
-#if 0%{?suse_version}
-#else
+%if 0%{?suse_version}
+# Use lessc from a prebuilt rpm
+BuildRequires: nodejs
+%else
 BuildRequires: nodejs-less
-#endif
+%endif
 
 
 %description
@@ -59,6 +64,11 @@ Graphical front end and tray applet for configuring Razer peripherals on GNU/Lin
 %autosetup -n polychromatic-%{gitcommit}
 %else
 %autosetup -n polychromatic-%{version}
+%endif
+%if 0%{?suse_version}
+pushd %{_sourcedir}
+rpm2cpio %{_sourcedir}/lessc-2.6.1-6.3.noarch.rpm | cpio -imd --quiet
+popd
 %endif
 
 %build
@@ -75,7 +85,7 @@ cd %{_builddir}/polychromatic-%{version}
 %endif
 
 %if 0%{?suse_version}
-make DESTDIR=$RPM_BUILD_ROOT LESSC=/usr/lib/node_modules/less/bin/lessc install
+make DESTDIR=$RPM_BUILD_ROOT LESSC=%{_sourcedir}/usr/bin/lessc install
 %else
 make DESTDIR=$RPM_BUILD_ROOT install
 %endif
