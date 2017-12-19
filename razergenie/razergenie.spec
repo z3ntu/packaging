@@ -14,7 +14,7 @@ Patch0: 0001-Also-detect-lrelease-qt5-on-other-distros.patch
 BuildRequires: meson
 %if 0%{?suse_version}
 # "python3" is needed explicitely due to a bug in the meson packaging: https://bugzilla.opensuse.org/show_bug.cgi?id=1068818
-BuildRequires: libqt5-qtbase-devel libqt5-linguist python3
+BuildRequires: libqt5-qtbase-devel libqt5-linguist hicolor-icon-theme python3
 %else
 BuildRequires: qt5-qtbase-devel qt5-linguist
 %endif
