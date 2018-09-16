@@ -1,7 +1,7 @@
 # This spec file was tested on Fedora 25.
 
 Name: razergenie
-Version: 0.6
+Version: 0.7
 Release: 1%{?dist}
 Summary: Standalone Qt application for configuring your Razer devices under GNU/Linux
 
@@ -38,6 +38,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root,-)
 %{_bindir}/razergenie
 %{_libdir}/libopenrazer.so*
-%{_datadir}/applications/razergenie.desktop
-%{_datadir}/icons/hicolor/scalable/apps/razergenie.svg
+%{_datadir}/applications/xyz.z3ntu.razergenie.desktop
+%{_datadir}/icons/hicolor/scalable/apps/xyz.z3ntu.razergenie.svg
 %{_datadir}/razergenie/
