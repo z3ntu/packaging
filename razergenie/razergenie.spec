@@ -11,11 +11,20 @@ URL: https://github.com/z3ntu/RazerGenie
 Source0: https://github.com/z3ntu/RazerGenie/releases/download/v%{version}/RazerGenie-%{version}.tar.xz
 
 BuildRequires: meson
+BuildRequires: pkgconfig(Qt5Core)
+BuildRequires: pkgconfig(Qt5Gui)
+BuildRequires: pkgconfig(Qt5Widgets)
+BuildRequires: pkgconfig(Qt5DBus)
+BuildRequires: pkgconfig(Qt5Network)
+BuildRequires: pkgconfig(Qt5Xml)
 %if 0%{?suse_version}
-# "python3" is needed explicitely due to a bug in the meson packaging: https://bugzilla.opensuse.org/show_bug.cgi?id=1068818
-BuildRequires: libqt5-qtbase-devel libqt5-linguist hicolor-icon-theme python3
+BuildRequires: libqt5-linguist hicolor-icon-theme
 %else
-BuildRequires: qt5-qtbase-devel qt5-linguist
+%if 0%{?mageia}
+BuildRequires: qttools5
+%else
+BuildRequires: qt5-linguist
+%endif
 %endif
 Requires: razer-daemon
 %description
@@ -40,4 +49,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/libopenrazer.so*
 %{_datadir}/applications/xyz.z3ntu.razergenie.desktop
 %{_datadir}/icons/hicolor/scalable/apps/xyz.z3ntu.razergenie.svg
+%{_datadir}/metainfo/xyz.z3ntu.razergenie.appdata.xml
 %{_datadir}/razergenie/
