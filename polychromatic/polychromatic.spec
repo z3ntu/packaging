@@ -19,7 +19,7 @@
 #define gitcommit fa55635c3f7ec05afd04c34a6ee4f4c144a21e34
 
 Name: polychromatic
-Version: 0.3.11.2
+Version: 0.3.12
 Release: 1%{?dist}
 Summary: A front-end for configuring Razer devices
 
@@ -39,11 +39,11 @@ BuildArch: noarch
 
 Requires: python3-razer
 Requires: python3
-# Thanks OpenSUSE for this great package name...
-%if 0%{?suse_version}
-Requires: libappindicator3-1 pkgconfig(webkit2gtk-4.0) typelib-1_0-WebKit2-4_0
+Requires: pkgconfig(webkit2gtk-4.0)
+%if 0%{?suse_version} || 0%{?mageia}
+Requires: typelib(AppIndicator3)
 %else
-Requires: libappindicator-gtk3 webkitgtk4
+Requires: libappindicator-gtk3
 %endif
 Requires: ImageMagick
 BuildRequires: rsync
