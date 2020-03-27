@@ -39,6 +39,9 @@ BuildArch: noarch
 
 Requires: python3-razer
 Requires: python3
+%if 0%{?suse_version}
+Requires: python3-gobject-Gdk
+%endif
 Requires: pkgconfig(webkit2gtk-4.0)
 %if 0%{?suse_version} || 0%{?mageia}
 Requires: typelib(AppIndicator3)
