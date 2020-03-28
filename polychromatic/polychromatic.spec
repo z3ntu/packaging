@@ -34,10 +34,12 @@ Source0: https://github.com/lah7/polychromatic/archive/v%{version}.tar.gz
 %if 0%{?suse_version}
 Source1: http://download.opensuse.org/repositories/home:/illuusio:/nodejs-bundle/openSUSE_Tumbleweed/noarch/lessc-2.6.1-6.3.noarch.rpm
 %endif
+Patch0: 0001-Migrate-platform-module-to-distro-v0.3.12.patch
 
 BuildArch: noarch
 
 Requires: python3-razer
+Requires: python3-distro
 Requires: python3
 %if 0%{?suse_version}
 Requires: python3-gobject-Gdk
