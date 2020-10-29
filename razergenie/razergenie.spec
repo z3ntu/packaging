@@ -1,7 +1,7 @@
 # This spec file was tested on Fedora 25.
 
 Name: razergenie
-Version: 0.8.1
+Version: 0.9.0
 Release: 1%{?dist}
 Summary: Standalone Qt application for configuring your Razer devices under GNU/Linux
 
