@@ -8,6 +8,8 @@ else
 	BUILDSYSTEM=cmake
 endif
 
+export QT_SELECT=qt5
+
 %:
 	$(info Using buildsystem $(BUILDSYSTEM).)
 	dh $@ --buildsystem=${BUILDSYSTEM}
