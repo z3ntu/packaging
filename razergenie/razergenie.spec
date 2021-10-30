@@ -40,13 +40,20 @@ Standalone Qt application for configuring your Razer devices under GNU/Linux.
 %install
 %meson_install
 
+# until we actually have a devel package we can delete the symlink that is only used during linking
+rm %{buildroot}%{_libdir}/libopenrazer.so
+
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+# make sure the cache for ld.so is up2date
+%post   -p /sbin/ldconfig
+%postun -p /sbin/ldconfig
 
 %files
 %defattr(-,root,root,-)
 %{_bindir}/razergenie
-%{_libdir}/libopenrazer.so*
+%{_libdir}/libopenrazer.so.*
 %{_datadir}/applications/xyz.z3ntu.razergenie.desktop
 %{_datadir}/icons/hicolor/scalable/apps/xyz.z3ntu.razergenie.svg
 %{_datadir}/metainfo/xyz.z3ntu.razergenie.appdata.xml
