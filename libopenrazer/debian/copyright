@@ -1,0 +1,7 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: libopenrazer
+Upstream-Contact: https://github.com/z3ntu/libopenrazer
+Source: https://github.com/z3ntu/libopenrazer
+
+Files: *
+License: GPL-3.0+

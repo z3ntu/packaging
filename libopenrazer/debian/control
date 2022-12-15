@@ -1,0 +1,22 @@
+Source: libopenrazer
+Maintainer: Luca Weiss <luca@z3ntu.xyz>
+Section: misc
+Priority: optional
+Standards-Version: 4.6.1
+Build-Depends: debhelper (>= 12),
+               meson,
+               pkg-config,
+               qtbase5-dev,
+               qttools5-dev-tools
+Vcs-Git: https://github.com/z3ntu/libopenrazer
+
+Package: libopenrazer0
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Qt wrapper around the D-Bus API from OpenRazer
+
+Package: libopenrazer-dev
+Architecture: any
+Depends: libopenrazer0 (= ${binary:Version}),
+         ${misc:Depends}
+Description: Qt wrapper around the D-Bus API from OpenRazer - development files

@@ -1,0 +1,3 @@
+usr/include/libopenrazer*
+usr/lib/*/libopenrazer.so
+usr/lib/*/pkgconfig/libopenrazer.pc
