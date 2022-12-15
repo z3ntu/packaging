@@ -1,5 +1,6 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: razergenie
+Upstream-Contact: https://github.com/z3ntu/RazerGenie
 Source: https://github.com/z3ntu/RazerGenie
 
 Files: *

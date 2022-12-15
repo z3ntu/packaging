@@ -2,17 +2,18 @@ Source: razergenie
 Maintainer: Luca Weiss <luca@z3ntu.xyz>
 Section: misc
 Priority: optional
-Standards-Version: 3.9.8
-Build-Depends: cmake,
-               debhelper (>= 9),
-               extra-cmake-modules,
+Standards-Version: 4.6.1
+Build-Depends: debhelper (>= 12),
+               libopenrazer-dev,
                meson,
                pkg-config,
                qtbase5-dev,
                qttools5-dev-tools
+Vcs-Git: https://github.com/z3ntu/RazerGenie
 
 Package: razergenie
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends} openrazer-daemon
 Description: Qt application for configuring your Razer devices
- Interfaces with the OpenRazer daemon to control and configure all of your Razer peripherals that are connected to your PC.
+ Interfaces with the OpenRazer daemon to control and configure all of your
+ Razer peripherals that are connected to your PC.

@@ -1,9 +1,7 @@
-# This spec file was tested on Fedora 25.
-
 Name: razergenie
-Version: 0.9.0
+Version: 1.0.0
 Release: 1%{?dist}
-Summary: Standalone Qt application for configuring your Razer devices under GNU/Linux
+Summary: Configure and control your Razer devices
 
 License: GPL-3.0
 URL: https://github.com/z3ntu/RazerGenie
@@ -11,6 +9,7 @@ URL: https://github.com/z3ntu/RazerGenie
 Source0: https://github.com/z3ntu/RazerGenie/releases/download/v%{version}/RazerGenie-%{version}.tar.xz
 
 BuildRequires: meson
+BuildRequires: pkgconfig(libopenrazer)
 BuildRequires: pkgconfig(Qt5Core)
 BuildRequires: pkgconfig(Qt5Gui)
 BuildRequires: pkgconfig(Qt5Widgets)
@@ -26,9 +25,9 @@ BuildRequires: qttools5
 BuildRequires: qt5-linguist
 %endif
 %endif
-Requires: razer-daemon
+Requires: openrazer-daemon
 %description
-Standalone Qt application for configuring your Razer devices under GNU/Linux.
+Configure and control your Razer devices
 
 %prep
 %autosetup -n RazerGenie-%{version} -p1
@@ -40,20 +39,12 @@ Standalone Qt application for configuring your Razer devices under GNU/Linux.
 %install
 %meson_install
 
-# until we actually have a devel package we can delete the symlink that is only used during linking
-rm %{buildroot}%{_libdir}/libopenrazer.so
-
 %clean
 rm -rf $RPM_BUILD_ROOT
-
-# make sure the cache for ld.so is up2date
-%post   -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
 
 %files
 %defattr(-,root,root,-)
 %{_bindir}/razergenie
-%{_libdir}/libopenrazer.so.*
 %{_datadir}/applications/xyz.z3ntu.razergenie.desktop
 %{_datadir}/icons/hicolor/scalable/apps/xyz.z3ntu.razergenie.svg
 %{_datadir}/metainfo/xyz.z3ntu.razergenie.appdata.xml
