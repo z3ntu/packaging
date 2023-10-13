@@ -1,3 +1,9 @@
+libopenrazer (0.2.0-0) stable; urgency=medium
+
+  * New upstream release
+
+ -- Luca Weiss <luca@z3ntu.xyz>  Fri, 13 Oct 2023 22:17:41 +0200
+
 libopenrazer (0.1.0-1) stable; urgency=medium
 
   * Initial release.

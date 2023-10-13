@@ -3,7 +3,7 @@ Name: libopenrazer0
 %else
 Name: libopenrazer
 %endif
-Version: 0.1.0
+Version: 0.2.0
 Release: 1%{?dist}
 Summary: Qt wrapper around the D-Bus API from OpenRazer
 
