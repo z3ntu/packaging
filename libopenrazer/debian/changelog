@@ -1,3 +1,9 @@
+libopenrazer (0.3.0-0) stable; urgency=medium
+
+  * New upstream release
+
+ -- Luca Weiss <debian@lucaweiss.eu>  Sun, 10 Nov 2024 18:01:16 +0000
+
 libopenrazer (0.2.0-0) stable; urgency=medium
 
   * New upstream release
