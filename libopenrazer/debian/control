@@ -6,8 +6,8 @@ Standards-Version: 4.6.1
 Build-Depends: debhelper (>= 12),
                meson,
                pkg-config,
-               qtbase5-dev,
-               qttools5-dev-tools
+               qt6-base-dev,
+               qt6-l10n-tools
 Vcs-Git: https://github.com/z3ntu/libopenrazer
 
 Package: libopenrazer0

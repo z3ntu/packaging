@@ -3,7 +3,7 @@ Name: libopenrazer0
 %else
 Name: libopenrazer
 %endif
-Version: 0.3.0
+Version: 0.4.0
 Release: 1%{?dist}
 Summary: Qt wrapper around the D-Bus API from OpenRazer
 
@@ -13,17 +13,17 @@ URL: https://github.com/z3ntu/libopenrazer
 Source0: https://github.com/z3ntu/libopenrazer/releases/download/v%{version}/libopenrazer-%{version}.tar.xz
 
 BuildRequires: meson
-BuildRequires: pkgconfig(Qt5Core)
-BuildRequires: pkgconfig(Qt5Gui)
-BuildRequires: pkgconfig(Qt5DBus)
-BuildRequires: pkgconfig(Qt5Xml)
+BuildRequires: pkgconfig(Qt6Core)
+BuildRequires: pkgconfig(Qt6Gui)
+BuildRequires: pkgconfig(Qt6DBus)
+BuildRequires: pkgconfig(Qt6Xml)
 %if 0%{?suse_version}
-BuildRequires: libqt5-linguist hicolor-icon-theme
+BuildRequires: qt6-tools-linguist hicolor-icon-theme
 %else
 %if 0%{?mageia}
-BuildRequires: qttools5
+BuildRequires: qttools6
 %else
-BuildRequires: qt5-linguist
+BuildRequires: qt6-linguist
 %endif
 %endif
 
@@ -56,6 +56,7 @@ Qt wrapper around the D-Bus API from OpenRazer
 %endif
 
 %files
+%{_datadir}/libopenrazer/
 %{_libdir}/libopenrazer.so.*
 
 %files devel
